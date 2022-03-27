@@ -13,6 +13,10 @@ const client = new Client({
 });
 client.login(process.env.tokenID);
 
+app.get("/", async (req, res) => {
+  res.send("App Working");
+});
+
 app.post("/", async (req, res) => {
   const channel = client.channels.cache.get(process.env.channelID);
   channel.send({ content: req.body.message });
